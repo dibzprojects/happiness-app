@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+    http://www.springframework.org/schema/mvc
+    http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd   
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+	<!-- Component scanning with <context:component-scan base-package="main" 
+		/> is telling spring that it should search the classpath for all the classes 
+		under main.java and look at each class to see if it has a @Controller, or 
+		@Repository, or @Service, or @Component a nd if it does then Spring will 
+		register the class with the bean factory as if you had typed <bean class="..." 
+		/> in the XML configuration files. -->
+	<context:annotation-config />
+	<context:component-scan
+		base-package="com.happy.app"></context:component-scan>
+
+	<!-- <context:annotation-config /> means that you can define spring beans 
+		dependencies without actually having to specify a bunch of elements in XML 
+		or implement an interface or extend a base class. -->
+
+
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/views/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+</beans>

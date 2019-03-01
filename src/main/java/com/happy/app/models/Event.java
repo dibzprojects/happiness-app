@@ -1,4 +1,4 @@
-package model;
+package com.happy.app.models;
 
 public class Event {
 
